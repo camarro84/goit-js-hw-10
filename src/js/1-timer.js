@@ -3,6 +3,8 @@ import 'flatpickr/dist/flatpickr.min.css';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
+import '../css/styles.css';
+
 const startButton = document.querySelector('[data-start]');
 const datetimePicker = document.querySelector('#datetime-picker');
 const daysSpan = document.querySelector('[data-days]');
@@ -62,6 +64,10 @@ function updateTimer() {
 
   if (timeDifference <= 0) {
     clearInterval(countdownInterval);
+    daysSpan.textContent = '00';
+    hoursSpan.textContent = '00';
+    minutesSpan.textContent = '00';
+    secondsSpan.textContent = '00';
     datetimePicker.disabled = false;
     startButton.disabled = true;
     return;
